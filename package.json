@@ -1,0 +1,19 @@
+{
+  "name": "telechatbot-plus",
+  "version": "0.0.1",
+  "description": "TeleChatBot+ is a telegram group management bot with additional features",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "author": "Yaroslav Karasevych<pixtanegithub@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "node-telegram-bot-api": "^0.64.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
