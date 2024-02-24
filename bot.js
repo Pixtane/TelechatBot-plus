@@ -8,7 +8,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 async function botStart() {
   try {
-    const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+    const bot = new TelegramBot(BOT_TOKEN, { polling: true }); 
 
     bot.on("message", async (msg) => await router(bot, msg));
     //bot.on("text", async (msg) => await router(bot, msg));
