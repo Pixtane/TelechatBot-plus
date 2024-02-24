@@ -18,6 +18,9 @@ async function botStart() {
       "left_chat_member",
       async (msg) => await noobRouter(bot, msg, "left")
     );
+
+    // Set webhook to Vercel endpoint
+    bot.setWebhook(`${process.env.VERCEL_URL}/api`);
   } catch (error) {
     console.log("BOT ERROR: ", error.status, error.message);
   }
