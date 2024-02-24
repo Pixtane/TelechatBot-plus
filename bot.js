@@ -1,3 +1,5 @@
+console.log("Bot script started!");
+
 const TelegramBot = require("node-telegram-bot-api");
 const router = require("./router/router");
 const callbackRouter = require("./router/callbackRouter");
