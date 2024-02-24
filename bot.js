@@ -8,10 +8,12 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 async function botStart() {
   try {
-    const bot = new TelegramBot(BOT_TOKEN, { polling: true }); 
+    const bot = new TelegramBot(BOT_TOKEN);
+
+    // Replace polling with webhook
+    await bot.setWebhook(`${process.env.VERCEL_URL}/api`);
 
     bot.on("message", async (msg) => await router(bot, msg));
-    //bot.on("text", async (msg) => await router(bot, msg));
     bot.on("callback_query", async (data) => await callbackRouter(bot, data));
     bot.on("new_chat_members", async (msg) => await noobRouter(bot, msg));
     bot.on(
@@ -19,8 +21,7 @@ async function botStart() {
       async (msg) => await noobRouter(bot, msg, "left")
     );
 
-    // Set webhook to Vercel endpoint
-    bot.setWebhook(`${process.env.VERCEL_URL}/api`);
+    console.log("Bot started!"); // Log successful start
   } catch (error) {
     console.log("BOT ERROR: ", error.status, error.message);
   }
