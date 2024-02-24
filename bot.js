@@ -11,7 +11,7 @@ async function botStart() {
     const bot = new TelegramBot(BOT_TOKEN);
 
     // Replace polling with webhook
-    await bot.setWebhook(`${process.env.VERCEL_URL}/api`);
+    await bot.setWebhook(`${process.env.VERCEL_URL}`);
 
     bot.on("message", async (msg) => await router(bot, msg));
     bot.on("callback_query", async (data) => await callbackRouter(bot, data));
